@@ -53,11 +53,19 @@ console.log(10 / 0); // Infinity
 
 console.clear();
 
+var 현재상태 = '움직임';
+
 var 안녕 = function( {
+    if (현재 상태 !=){
+        return false;
+    }
     var text = $('div').text;
     text = parseInt(text);
     text++;
     $('div').text(text);
-    console.log(text);
 })
-window.setInterval(안녕,5000);
+window.setInterval(안녕,1000);
+
+$('div').dblclick(function() {
+
+})
