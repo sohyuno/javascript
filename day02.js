@@ -51,3 +51,13 @@ console.log(undefined - 1);
 console.log('나눗셈 해볼까욘..~~~~~!?');
 console.log(10 / 0); // Infinity
 
+console.clear();
+
+var 안녕 = function( {
+    var text = $('div').text;
+    text = parseInt(text);
+    text++;
+    $('div').text(text);
+    console.log(text);
+})
+window.setInterval(안녕,5000);
