@@ -67,5 +67,5 @@ var 안녕 = function( {
 window.setInterval(안녕,1000);
 
 $('div').dblclick(function() {
-
+       현재상태 = '안움직임';
 })
