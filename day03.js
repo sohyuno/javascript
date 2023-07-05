@@ -18,5 +18,5 @@ console.log(false ? 10 : 100);
 let num1 = Number(prompt('숫자1입력>>'));
 let num2 = Number(prompt('숫자2입력 >>'));
 
-console.log(`두 수를 더한 결과는 ${Number(num1) + Number(num2)}입니다`);
-console.log(`두 수를 더한 결과는 ${num1 + 50}입니다`);
+document.write(`두 수를 더한 결과는 ${Number(num1) + Number(num2)}입니다`);
+document.write(`두 수를 더한 결과는 ${num1 + 50}입니다`);
