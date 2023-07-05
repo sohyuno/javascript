@@ -55,7 +55,7 @@ console.clear();
 
 var 현재상태 = '움직임';
 
-var 안녕 = function( {
+var 안녕 = function( { 
     if (현재 상태 !=){
         return false;
     }
