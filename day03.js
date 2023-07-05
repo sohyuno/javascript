@@ -31,12 +31,22 @@
 // let check = confirm('그래도 정말 나가셔야겠습니까?');
 // document.write(check);
 
-console.log('___________객체___________')
+console.log('___________객체___________');
 //객체는 {}를 사용하여 만든다
 let book1 = {
     title : '대모험',
     page:205,
     author:'오소현',
     publisher:'오또출판사',
-    price:35500}
-console.log(book1);        
+    price:35500};
+    book1.price = 20000;
+console.log(book1.price);
+
+let bae10 = [10, 50, 
+             80,100,
+             2,5,
+             '짱아','띵똥', '꿍','뽀또'
+            ];
+console.log(bae10);            
+
+        
