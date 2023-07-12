@@ -36,8 +36,16 @@ function hi(a,b,c){
 hi('오소현','27','경기도');
 hi('배상엽','30','서울');
 
+//함수 실행 결과를 값으로 받아오자
+function f1(x){
+ 2 * x + 1;
+}
 
-
+f1(5);
+console.log(f1);
+//배열은 object타입 중 array타입
+//함수도 객체 object 타입
+//중에서도 function 타입
 
 
 
