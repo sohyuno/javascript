@@ -41,12 +41,14 @@ let book1 = {
     price:35500};
     book1.price = 20000;
 console.log(book1.price);
+console.log(book1['author']);
 
 let bae10 = [10, 50, 
              80,100,
              2,5,
              '짱아','띵똥', '꿍','뽀또'
             ];
-console.log(bae10);            
+console.log(bae10);         
+console.log(bae10[6]);   
 
         
