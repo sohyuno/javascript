@@ -54,13 +54,20 @@ let person = {
 console.log(person.age);
 person.f();
 
-//책 제목, 가격, 저자
+//책 제목, 가격, 저자 Book타입 만들기
+//생성자 함수
 function Book(a,b,c){
     this.price = a;
     this.title = b;
     this.author= c;
     
 }
+// new 생성자()-->객체가 만들어진다
 let b1 = new Book(100,'짱아의하루','오소현');
 console.log(b1);
 console.log(typeof b1);
+
+//날짜 객체 
+//년도, 월, 일, 요일, 시, 분, 초
+
+'2023-07-14'
