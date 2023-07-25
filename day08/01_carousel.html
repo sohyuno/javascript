@@ -53,7 +53,7 @@
         }
         .target{
             width: 200px;
-            border: 3px solid red;
+            border: 3px solid black;
             /* transform: translateX(800px); */
             transition: 0.3s;
         }
@@ -68,6 +68,11 @@
                <div style="background-color: rosybrown" class="carousel-item"></div>
                <div style="background-color: springgreen;" class="carousel-item"></div>
                <div style="background-color: plum;" class="carousel-item"></div>
+               <div style="background-color: aqua;" class="carousel-item"></div>
+               <div style="background-color: skyblue" class="carousel-item"></div>
+               <div style="background-color: rosybrown" class="carousel-item"></div>
+               <div style="background-color: springgreen;" class="carousel-item"></div>
+               <div style="background-color: plum;" class="carousel-item"></div>
         </div>
         <button onclick="leftHandler()" class="left"><</button>
         <button onclick="rightHandler()" class="right">></button>
@@ -76,6 +81,11 @@
         <div class="target"></div>
     </div>
     <script>
+         const line = document.querySelector('.line');
+         const items = document.querySelectorAll('.carousel-item');
+         const target =document.querySelector('.target');
+         target.style.width = `${line.offsetWidth / items.length}px`;
+        // document.querySelector('.target').style.width = `${line.offsetWidth / items.length}px`;
         let cnt = 0;
         const rightHandler = ()=>{
             const line = document.querySelector('.line');
