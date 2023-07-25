@@ -123,11 +123,14 @@
         <!-- 카드 이미지 슬라이드 -->
         <h2 class="h2_1">최신 제품. <span class="graytxt">따끈따끈한 신제품 이야기.</span></h2>
         <div class="container-wrap">
-            <button class="left_btn"><</button>
-            <button class="right_btn">></button>
+            <button onclick="rightBtn()" class="right_btn">></button>
             
-            <div class="card-container">
+            <div class="card-container ">
                 
+                <div class="none-card">
+                    <button onclick="leftBtn()" class="left_btn"><</button>
+
+                </div>
                 <div class="card black">
                     <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-40-iphone-14-pro-202303_GEO_KR?wid=400&hei=500&fmt=p-jpg&qlt=95&.v=1677311461331"
                     alt="">
@@ -222,6 +225,7 @@
         </div>
     </div>
     </main>
+    <script src="./apple.js"></script>
 </body>
 
 </html>
