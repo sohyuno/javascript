@@ -121,12 +121,14 @@ main{
     display: flex;
     column-gap: 20px;
     width: fit-content;
+    overflow-x: scroll;
+    transition: 0.3s;
     
 
 }
 .container-wrap{
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: scroll;
     position: relative;
     /* transform: translateX(490px); */
     
@@ -238,6 +240,7 @@ main{
 }
 .left_btn{
 position: absolute;
+z-index: 3;
 left: 50px;
 top: 50%;
 width: 50px;
@@ -260,6 +263,7 @@ color: rgba(255, 255, 255, 0.9);
     border: none;
     color: rgba(255, 255, 255, 0.9);
     z-index: 2;
+    cursor: pointer;
     
 }
 .none-card{
@@ -267,4 +271,6 @@ color: rgba(255, 255, 255, 0.9);
     width: 400px;
     height: 500px;
     position: relative;
+    
 }
+
