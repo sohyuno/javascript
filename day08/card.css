@@ -9,7 +9,8 @@ font-family: 'Shadows Into Light', cursive; */
 
 
 body {
-    background-color: #fbfbfb;
+    /* background-color: #fbfbfb; */
+    background-color: rgba(0, 0, 0, .05);
     width: 100vw;
 }
 
@@ -24,6 +25,7 @@ header {
     align-items: center;
     padding: 0 40px;
     box-sizing:border-box;
+    overflow: none;
 
 }
 
@@ -73,7 +75,8 @@ aside>h2 {
 }
 main{
     width: 100%;
-    margin-left: 490px;
+    /* padding-left: 490px; */
+    transform: translateX(490px);
 }
 
 .card {
@@ -116,12 +119,12 @@ main{
     display: flex;
     column-gap: 20px;
     width: fit-content;
-    /* transform: translateX(490px); */
 
 }
 .container-wrap{
     width: 100%;
     overflow-x: hidden;
+    position: relative;
 }
 .graytxt{
     color: gray;
@@ -140,7 +143,7 @@ main{
 }
 .event{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: white;
     padding: 20px 20px;
 }
@@ -164,16 +167,22 @@ main{
 }
 #all{
  display: flex;
- column-gap: 30px;
+ column-gap: 40px;
+ 
 }
 .mini-card > img{
     width: 120px;
     height: 78px;
 
 }
-.mini-txt > p{
+.mini-txt > a{
     font-size: 14px;
-    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 .mine{
     width: 100%;
@@ -189,6 +198,40 @@ main{
     background-size: cover;
     background-position: center;
 }
-.first{
+.maintxt-wrap{
     display: flex;
+   
+}
+.helper{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: bolder;
+    padding: 80px 100px;
+    
+    
+}
+.help{
+    column-gap: 10px;
+    margin-left: 0 auto;
+    
+
+}
+.help-p > a{
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: 100;
+}
+.left_btn{
+position: absolute;
+left: 10px;
+z-index: 1;
+}
+.right_btn{
+    position: absolute;
+    right: 0;
+    
 }
