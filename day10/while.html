@@ -9,11 +9,22 @@
     <script>
         let a = 0;
         while(a < 5){
-            console.log('안녕');
-            a++
+            console.log(a,'안녕');
+            a++;
 
         };
         console.log('졸령')
+
+        for(let a = 0; a < 5; a++){
+            console.log(a ,'앙녕~');
+        };
+        // 사용자가 취소를 누르지 않았다면 prompt창을 띄워서 계속 입력 받아줘
+        while(true){
+            let a = prompt('취소를 누르면 값이 종료됨');
+            if(a===null){
+                break;
+            };
+        }
     </script>
 </body>
 </html>
