@@ -92,7 +92,7 @@ let tbl_posts = [
       {
         id:7, 
         title:'네이버',
-        content:'더운 여름철에 환기가 잘 되지 않는 밀폐된 공간에서 냉방이 지속될 경우 가벼운 감기, 몸살, 권태감 같은 증상이 나타나는 것을 말한다. 다시 말해 냉방병이란 어떤 질병을 가리키는 용어라기보다는 유사한 증상을 나타내는 여러 질환군을 총칭하는 증후군의 일종이라고 말할 수 있다.',
+        content:'항해하는 사람들.이라는 뜻.',
         writerId:'abc123@naver.com',
         createdAt:'2023-07-08 15:31',
         updatedAt:'2023-07-28 15:51', 
@@ -101,8 +101,7 @@ let tbl_posts = [
       {
         id:8, 
         title:'다음',
-        content:'과도한 고온 환경에 노출되거나, 더운 환경에서 작업, 운동 등을 시행하면서 신체의 열 발산이 원활히 이루어지지 않아 고체온 상태가 되면서 발생하는 신체 이상을 말한다. 고전적인 열사병의 정의는 40℃ 이상의 심부체온, 중추신경계 기능 이상, 무한증(땀이 나지 않는 것)의 세 가지를 모두 가지고 있어야 하지만, 무한증은 나타나지 않을 수도 있다. 고체온증과 중추신경계 기능 이상을 보이는 환자는 열사병을 반드시 의심해야 하는데, 여러 장기를 손상시키는 응급 상황이므로 즉각적으로 처치하지 못하면 매우 높은 사망률을 보인다.',
-        writerId:'test@naver.com',
+        content:'은 누구지?',
         createdAt:'2023-07-06 15:31',
         updatedAt:'2023-07-30 15:51', 
         like:5
@@ -110,7 +109,7 @@ let tbl_posts = [
       {
         id:9, 
         title:'구글',
-        content:'저체온증은 임상적으로 중심체온(심부체온)이 35℃ 이하로 떨어진 상태를 말한다. 인체의 열 생산이 감소되거나 열 소실이 증가될 때, 또는 두 가지가 복합적으로 발생할 때 초래되며, 저체온증은 갑자기 생기거나 점차적으로 발생할 수 있다. 체온이 정상보다 낮아지면 혈액 순환과 호흡, 신경계의 기능이 느려진다.',
+        content:'구글 유용해.',
         writerId:'test@naver.com',
         createdAt:'2023-07-01 15:31',
         updatedAt:'2023-07-05 15:51', 
@@ -142,7 +141,7 @@ let tbl_posts = [
         createdAt:'2023-07-06 15:31',
         updatedAt:'2023-07-07 15:51', 
         like:3
-      },
+      }
     
     
     ]
@@ -159,13 +158,33 @@ let tbl_posts = [
     }else if(ordby === 'dateAsc'){//오래된 순 정렬
         tbl_posts.sort((a,b)=>new Date(a.createdAt) - new Date(b.createdAt));
         
-    }else(ordby === 'date'){//최신순 정렬
+    }else{//최신순 정렬
         
         tbl_posts.sort((a,b)=>new Date(b.createdAt) - new Date(a.createdAt));
-
-
     };
-    console.log{tbl_posts};
-    }
+    //tbl_posts는 정렬이 잘 되어써구나
+    //page : 1         2             page
+    //limit:10        10              m
+    //인덱스:0-9      10-19          (page-1)*limit <= < page*limit
+    let res = tbl_posts.slice((page-1)*limit, page*limit);
+    //   console.log(res);
 
-    fetchPosts(0, 0,'like');
+    return {
+        status:200,
+        data : {
+            totalCount :tbl_posts.length,
+            record : res
+        }
+    };
+}
+
+let res = fetchPosts(1, 5,'date');
+let totalPage = Math.ceil(res.data.totalCount / 5);
+
+let btn_wrap = document.querySelector('#btn-wrap');
+for(let i = 0; i <totalPage; i++){
+    let newBtn = document.createElement('button');
+    newBtn.textContent = i + 1;
+    btn_wrap.appendChild(newBtn);
+}
+// fetch('https://koreajson.com/posts');
