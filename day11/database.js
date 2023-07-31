@@ -164,5 +164,8 @@ let tbl_posts = [
         tbl_posts.sort((a,b)=>new Date(b.createdAt) - new Date(a.createdAt));
 
 
+    };
+    console.log{tbl_posts};
     }
-    }
+
+    fetchPosts(0, 0,'like');
