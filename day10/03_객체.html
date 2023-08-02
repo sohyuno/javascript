@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글</title>
+    <style>
+        .board-table{
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        .table-row{
+            /* box-sizing: border-box; */
+            height: 50px;
+            border-bottom: 1px solid silver;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .table-header{
+            background-color: #e9e9e9;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="board-table">
+        <div class="table-row table-header">게시글 제목</div>
+
+    </div>
+<script>
+    // 게시글 제목 10개가 data방에 들어있는 응답
+ let res = {
+  status:200,
+  data:['나는 오바오',
+        '미니게임 천국 나온거 아시는 분?',
+        '다들 휴가 어디 가시나요~ㅎㅎㅎ',
+        '배그 ㄱ?',
+         '브롤 업뎃 언제 끝나나요ㅠ',
+        '초코칩쿠키 vs 칙촉',
+        '위례 안과 추천해주세욧ㅇㅅㅇ',
+        '푸바오 레전드짤',
+        '푸룬 효과 대박이네요..',
+        '비비큐 시켰습니다ㅋㅋㅋ'
+    ]
+
+ }
+ //res.data에 내가 실질적으로 필요한 10개의 제목이 들어있다.
+ for(let i = 0; i < res.data.length ; i++){
+    let newRow = document.createElement('div');
+    newRow.classList.add('table-row');
+    newRow.textContent = res.data[i];
+
+    let boardTable = document.querySelector('.board-table');
+    boardTable.appendChild(newRow);
+ }
+</script>
+
+</body>
+</html>

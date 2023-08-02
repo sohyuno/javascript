@@ -150,7 +150,7 @@ let tbl_posts = [
     //page : 보고자 하는 페이지
     //limit : 한 페이지당 게시물 갯수
     //ordby : 'like' 좋아요 내림차순정렬 , 'date': 작성일 내림차순(최신순),'dateAsc': 작성일 오름차순 (오래된순)
-    function fetchPosts(page, limit, ordby,){
+    function fetchPosts(page, limit, ordby){
     //tbl_posts는 15개의 객체가 들어있는 배열  
     if(ordby === 'like'){//좋아요 수 정렬
        tbl_posts.sort((a,b)=>b.like - a.like);
@@ -177,14 +177,115 @@ let tbl_posts = [
         }
     };
 }
+//한 페이지 당 보여줄 게시물의 갯수
+let limit = 2;
 
-let res = fetchPosts(1, 5,'date');
-let totalPage = Math.ceil(res.data.totalCount / 5);
+//특정 페이지의 게시물을 그려주는 함수
+const getPosts = (page)=>{
+  let res = fetchPosts(page, limit,'date');
+  //tableDiv에 보여지고 있는 두 개의 게시물 행을 삭제를 한다
+  let tableDiv = document.querySelector('#table');
+  tableDiv.removeChild(tableDiv.children[2]);
+  tableDiv.removeChild(tableDiv.children[1]);
+//두번 반복
+//첫번째 반복때는 tableDiv에다 첫번째 게시물행 추가
+//두번째 반복때는 tableDiv에다 두번째 게시물행 추가
 
-let btn_wrap = document.querySelector('#btn-wrap');
+  for(let i = 1; i < limit; i++){
+    let newRow = document.createElement('div');
+    newRow.className = "table-row";
+    //res
+    //cell1 div만들기
+    let cell1 = document.createElement('div');
+    cell1.className = "cell cell10"
+    cell1.textContent = res.data.record[i].id;
+    newRow.appendChild(cell1);
+    //cell2 div만들기
+    let cell2 = document.createElement('div');
+    cell2.className = "cell cell40"
+    cell2.textContent = res.data.record[i].title;
+    newRow.appendChild(cell2);
+    //cell3
+    let cell3 = document.createElement('div');
+    cell3.className = "cell cell10"
+    cell3.textContent = res.data.record[i].writerId;
+    newRow.appendChild(cell3);
+    //cell4
+    let cell4 = document.createElement('div');
+    cell4.className = "cell cell10"
+    cell4.textContent = res.data.record[i].like;
+    newRow.appendChild(cell4);
+    //cell5
+    let cell5 = document.createElement('div');
+    cell5.className = "cell cell15"
+    cell5.textContent = res.data.record[i].createdAt;
+    newRow.appendChild(cell5);
+    //cell6
+    let cell6 = document.createElement('div');
+    cell6.className = "cell cell15"
+    cell6.textContent = res.data.record[i].updatedAt;
+    newRow.appendChild(cell6);
+    //id가 table인 div를 가져와서 div추가하기
+    
+    // tableDiv.removeChild(tableDiv.children[1]);
+    // tableDiv.removeChild(tableDiv.children[2]);
+    tableDiv.appendChild(newRow);
+  
+  }
+ 
+};
+
+
+let res = fetchPosts(1, limit,'date');
+let totalPage = Math.ceil(res.data.totalCount / limit);
+
+let btn_wrap = document.querySelector('#btn_wrap');
 for(let i = 0; i <totalPage; i++){
     let newBtn = document.createElement('button');
     newBtn.textContent = i + 1;
+    newBtn.onclick =()=>{
+       getPosts(i+1);
+    } 
     btn_wrap.appendChild(newBtn);
-}
+};
 // fetch('https://koreajson.com/posts');
+
+for(let i = 0; i < limit; i++){
+  let newRow = document.createElement('div');
+  newRow.className = "table-row";
+  //res
+  //cell1 div만들기
+  let cell1 = document.createElement('div');
+  cell1.className = "cell cell10"
+  cell1.textContent = res.data.record[i].id;
+  newRow.appendChild(cell1);
+  //cell2 div만들기
+  let cell2 = document.createElement('div');
+  cell2.className = "cell cell40"
+  cell2.textContent = res.data.record[i].title;
+  newRow.appendChild(cell2);
+  //cell3
+  let cell3 = document.createElement('div');
+  cell3.className = "cell cell10"
+  cell3.textContent = res.data.record[i].writerId;
+  newRow.appendChild(cell3);
+  //cell4
+  let cell4 = document.createElement('div');
+  cell4.className = "cell cell10"
+  cell4.textContent = res.data.record[i].like;
+  newRow.appendChild(cell4);
+  //cell5
+  let cell5 = document.createElement('div');
+  cell5.className = "cell cell15"
+  cell5.textContent = res.data.record[i].createdAt;
+  newRow.appendChild(cell5);
+  //cell6
+  let cell6 = document.createElement('div');
+  cell6.className = "cell cell15"
+  cell6.textContent = res.data.record[i].updatedAt;
+  newRow.appendChild(cell6);
+  //id가 table인 div를 가져와서 div추가하기
+  let tableDiv = document.querySelector('#table');
+  tableDiv.appendChild(newRow);
+
+}
